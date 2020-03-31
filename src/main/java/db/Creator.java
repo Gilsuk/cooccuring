@@ -30,14 +30,11 @@ public class Creator {
 			.append(")")
 			.toString();
 	
-	public boolean createSchemes(Connection connection) {
+	public void createSchemes(Connection connection) {
 		try {
 			connection.prepareStatement(createKeywordTableSQL).execute();
 			connection.prepareStatement(createCooccurenceTableSQL).execute();
-			return true;
-		} catch (SQLException e) {
-			return false;
-		}
+		} catch (SQLException e) { e.printStackTrace(); }
 	}
 
 }
