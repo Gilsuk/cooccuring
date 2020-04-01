@@ -36,7 +36,7 @@ public class Connector {
 		SQLiteConfig config = new SQLiteConfig();
 		config.setBusyTimeout(5000);
 		config.setJournalMode(JournalMode.WAL);
-		config.setSynchronous(SynchronousMode.FULL);
+		config.setSynchronous(SynchronousMode.OFF);
 		config.enforceForeignKeys(true);
 		return config;
 	}

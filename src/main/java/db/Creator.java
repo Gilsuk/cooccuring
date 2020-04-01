@@ -30,7 +30,8 @@ public class Creator {
 			.append(")")
 			.toString();
 	
-	public void createSchemes(Connection connection) {
+	public static void createSchemes() {
+		Connection connection = Connector.getConnection();
 		try {
 			connection.prepareStatement(createKeywordTableSQL).execute();
 			connection.prepareStatement(createCooccurenceTableSQL).execute();

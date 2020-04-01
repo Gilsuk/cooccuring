@@ -25,7 +25,7 @@ public class Writer {
 	}
 	
 	public void addRow(String key, String rels) {
-		XSSFRow row = sheet.createRow(rownum);
+		XSSFRow row = sheet.createRow(rownum++);
 		XSSFCell keyCell = row.createCell(0);
 		XSSFCell relCell = row.createCell(1);
 		keyCell.setCellValue(key);
