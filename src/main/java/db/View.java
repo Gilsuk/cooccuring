@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class View implements Iterator<Map<String,List<String>>> {
+public class View implements Iterator<Map<String,String>> {
 	
 	private ViewWorker worker;
 	private int pointer, total;
@@ -27,7 +27,7 @@ public class View implements Iterator<Map<String,List<String>>> {
 	}
 
 	@Override
-	public Map<String, List<String>> next() {
+	public Map<String, String> next() {
 		return worker.getRelWordsByWordId(++pointer);
 	}
 	
@@ -86,10 +86,10 @@ class ViewWorker {
 		return 0;
 	}
 	
-	Map<String, List<String>> getRelWordsByWordId(int wordId) {
+	Map<String, String> getRelWordsByWordId(int wordId) {
 		String key = null;
 		List<String> words = new ArrayList<>();
-		Map<String, List<String>> result = new HashMap<>();
+		Map<String, String> result = new HashMap<>();
 
 		try {
 			selectStmt.setInt(1, wordId);
@@ -104,7 +104,7 @@ class ViewWorker {
 			e.printStackTrace();
 		}
 		
-		result.put(key, words);
+		result.put(key, words.toString());
 		return result;
 	}
 }
