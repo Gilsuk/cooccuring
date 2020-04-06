@@ -11,11 +11,17 @@ import morph.Analyzer;
 public class Main {
 
 	public static void main(String[] args) {
-		if (args.length != 2) return;
+		String input = "./attach_01.xlsx";
+		String output = "./attach_01_output.xlsx";
+
+		if (args.length == 2) {
+			input = args[0];
+			output = args[1];
+		}
 		
 		Creator.createSchemes(); // 인메모리 DB 구조 생성
 		
-		Parser parser = new Parser(args[0]); // 인풋 .xlsx 파싱 객체 생성
+		Parser parser = new Parser(input); // 인풋 .xlsx 파싱 객체 생성
 		Iterator<String> rowIter = parser.iterator(); // 인풋 데이터를 한 줄씩 반환하는 반복자
 
 		Analyzer analyzer = new Analyzer(); // 형태소 분석기
@@ -27,7 +33,7 @@ public class Main {
 		}
 
 		View view = new View(); // 분석 결과 조회 객체
-		Writer writer = new Writer(args[1]); // 아웃풋 .xlsx 쓰기 객체
+		Writer writer = new Writer(output); // 아웃풋 .xlsx 쓰기 객체
 		
 		view.forEachRemaining(x -> x.forEach((key, words) -> {
 			writer.addRow(key, words); // 분석 결과를 한 건씩 row 데이터로 변환
