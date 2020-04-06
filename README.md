@@ -8,7 +8,7 @@ JAVA, SQLite, KOMORAN
 
 ## erd
 
-![db-scheme](http://drive.google.com/uc?export=view&id=1JbY85CyNTvr5DaXxdqMWmMvLzBJzJ1OU)
+![db-scheme](https://user-images.githubusercontent.com/43606714/78527686-91452f00-7818-11ea-821e-840277283cef.png)
 
 ## 사용법
 
